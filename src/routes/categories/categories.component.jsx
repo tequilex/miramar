@@ -13,7 +13,7 @@ return (
     {Object.keys(userInfo.DATA_CATEGORIES).map((index) => {
         const info = userInfo.DATA_CATEGORIES[index];
 
-        console.log(info);
+        // console.log(info);
         return <Category key={index} info={info} index={index}/>;
     })}
     </div>

@@ -15,12 +15,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCk49qlX_lYLyRfLp85cWawzyMNx4hjfWU",
-  authDomain: "festival-miramar.firebaseapp.com",
-  projectId: "festival-miramar",
-  storageBucket: "festival-miramar.appspot.com",
-  messagingSenderId: "227608357816",
-  appId: "1:227608357816:web:29509a3ecfb40909f23d4d"
+
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -77,6 +72,11 @@ export const getUserDoc = async (userAuth) => {
 };
 
 export const updateUserDoc = async (userAuth, formField) => {
+  const userDocRef = doc(db, "users", userAuth.uid);
+  await updateDoc(userDocRef, formField)
+}
+
+export const updateUserCategoryDoc = async (userAuth, formField) => {
   const userDocRef = doc(db, "users", userAuth.uid);
   await updateDoc(userDocRef, formField)
 }
