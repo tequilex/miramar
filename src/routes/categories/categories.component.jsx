@@ -10,10 +10,11 @@ const { userInfo } = useContext(UserContext);
 
 return (
     <div className="categories-container">
-    {Object.keys(userInfo.DATA_CATEGORIES).map((title) => {
-        const info = userInfo.DATA_CATEGORIES[title];
+    {Object.keys(userInfo.DATA_CATEGORIES).map((index) => {
+        const info = userInfo.DATA_CATEGORIES[index];
 
-        return <Category key={title} info={info} title={title}/>;
+        console.log(info);
+        return <Category key={index} info={info} index={index}/>;
     })}
     </div>
 );

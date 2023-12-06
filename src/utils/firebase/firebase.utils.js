@@ -15,7 +15,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-
+  apiKey: "AIzaSyCk49qlX_lYLyRfLp85cWawzyMNx4hjfWU",
+  authDomain: "festival-miramar.firebaseapp.com",
+  projectId: "festival-miramar",
+  storageBucket: "festival-miramar.appspot.com",
+  messagingSenderId: "227608357816",
+  appId: "1:227608357816:web:29509a3ecfb40909f23d4d"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);

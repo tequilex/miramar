@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
+import Checkbox from "../checkbox/checkbox.component";
 import "./category.styles.scss";
 
-const Category = ({ info, title }) => {
-  const [checkBox, setCheckBox] = useState(info.items[title].checked);
+const Category = ({ info, index }) => {
 
-  console.log(info.items);
-
-  // console.log(checkBox);
   return (
     <div className="category-block">
       <h3 className="category-title">{info.title}</h3>
       {info.items.map((inf, index) => {
-        console.log(inf.checked);
+        console.log(inf);
         return (
-          <label key={index} className="category">
-            <input type="checkbox" />
-            {inf.name}
-          </label>
+          <Checkbox inf={inf} index={index}/>
         );
       })}
     </div>
