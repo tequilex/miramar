@@ -5,6 +5,7 @@ import {
     RouterProvider,
 } from "react-router-dom";
 
+import MainPage from "./routes/main-page/main-page.component";
 import Auth from "./routes/auth/auth.component";
 import UserPage from "./routes/user-page/user-page.component";
 import Categories from "./routes/categories/categories.component";
@@ -16,7 +17,11 @@ const App = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Auth />,
+            element: <MainPage />,
+        },
+        {
+            path: "/auth",
+            element: <Auth />
         },
         {
             element: (

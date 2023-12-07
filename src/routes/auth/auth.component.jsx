@@ -9,6 +9,7 @@ const Auth = () => {
     const { currentUser } = useContext(UserContext);
     return (
         <div className="auth-container">
+            
             {currentUser ? (
                 <Navigate to={`/user`} />
             ) : (

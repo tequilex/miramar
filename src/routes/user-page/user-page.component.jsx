@@ -26,8 +26,6 @@ const UserPage = () => {
         choisedPackage,
     } = formFields;
 
-    console.log(formFields);
-
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value });

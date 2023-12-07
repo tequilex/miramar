@@ -1,49 +1,41 @@
-import { useState, useContext } from "react";
+import {useEffect, useState, useContext } from "react";
+import { CheckBoxContext } from "../../contexts/checkbox.context";
 
-import { UserContext } from "../../contexts/user.context";
-import { updateUserCategoryDoc } from "../../utils/firebase/firebase.utils";
+const Checkbox = ({ inf, index, arr }) => {
+  const { setCheckBox, checkbox} = useContext(CheckBoxContext);
 
-import Button from "../button/button.component";
-
-
-const Checkbox = ({ inf, index }) => {
-  const { userInfo, currentUser } = useContext(UserContext);
-  const [checkbox, setCheckBox] = useState(inf);
+  // console.log(arr);
+  
+  // useEffect(() => {
+  //   setCheckBox(arr)
+  // })
 
   const handleChange = (event) => {
     const { checked } = event.target;
 
-    setCheckBox({...inf, isChecked: checked });
+    arr.map((item) => (
+      item.isChecked = checked
+    ))
+
+    setCheckBox(arr);
+    // console.log({...arr[index].isChecked = checked} );
+    // setCheckBox(arr[index].isChecked = checked);
     
-
-    // console.log({...inf, isChecked: checked });
-
+    // console.log({...userInfo.DATA_CATEGORIES[0].items});
+    // console.log(arr);
+    
   };
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      await updateUserCategoryDoc(currentUser)
-      alert('успешно обновлено')
-    } catch (error) {
-      console.log('ошибка', error);
-    }
-  }
   console.log(checkbox);
   return (
-    <form onSubmit={handleSubmit}>
       <label key={index} className="category">
         <input
           name={inf.name}
           type="checkbox"
-          checked={checkbox.isChecked}
+          checked={arr.isChecked}
           onChange={handleChange}
         />
         {inf.name}
       </label>
-      <Button type='submit'>Сохранить</Button>
-    </form>
   );
 };
 export default Checkbox;

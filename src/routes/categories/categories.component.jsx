@@ -1,21 +1,31 @@
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
 import Category from "../../components/category/category.component";
+import Button from "../../components/button/button.component";
 import "./categories.styles.scss";
 
 const Categories = () => {
 const { userInfo } = useContext(UserContext);
 
-// console.log(Object.keys(userInfo.DATA_CATEGORIES));
+const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+        // await updateUserCategoryDoc(currentUser, checkbox)
+        alert('успешно обновлено')
+    } catch (error) {
+        console.log('ошибка', error);
+    }
+}
 
 return (
     <div className="categories-container">
-    {Object.keys(userInfo.DATA_CATEGORIES).map((index) => {
-        const info = userInfo.DATA_CATEGORIES[index];
-
-        // console.log(info);
-        return <Category key={index} info={info} index={index}/>;
-    })}
+        <form onSubmit={handleSubmit}>
+            {userInfo.DATA_CATEGORIES.map((items, i) => {
+                console.log(items);
+                return <Category key={i} items={items} index={i}/>;
+            })}
+            <Button type='submit'>Сохранить</Button>
+        </form>
     </div>
 );
 };

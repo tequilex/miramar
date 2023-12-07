@@ -30,8 +30,6 @@ const SignUpForm = () => {
     const { displayName, birthday, city, email, password, confirmPassword } =
         formFields;
 
-        console.log(formFields);
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 

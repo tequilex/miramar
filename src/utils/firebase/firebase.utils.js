@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getDatabase, push, child, ref } from "firebase/database";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -15,10 +16,17 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-
+  apiKey: "AIzaSyCk49qlX_lYLyRfLp85cWawzyMNx4hjfWU",
+  authDomain: "festival-miramar.firebaseapp.com",
+  projectId: "festival-miramar",
+  storageBucket: "festival-miramar.appspot.com",
+  messagingSenderId: "227608357816",
+  appId: "1:227608357816:web:29509a3ecfb40909f23d4d"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
+
+export const database = getDatabase();
 
 export const auth = getAuth();
 
@@ -76,9 +84,16 @@ export const updateUserDoc = async (userAuth, formField) => {
   await updateDoc(userDocRef, formField)
 }
 
-export const updateUserCategoryDoc = async (userAuth, formField) => {
-  const userDocRef = doc(db, "users", userAuth.uid);
-  await updateDoc(userDocRef, formField)
-}
+// export const updateUserCategoryDoc = async (userAuth, checked) => {
+//   const userDocRef = doc(db, "users", userAuth.uid);
+//   const path = `DATA_CATEGORIES`
+//   await updateDoc(userDocRef, {[path]: checked})
+// }
+
+
+// export const updateCat = (userAuth) => {
+//   const dbRef = ref(database, 'users/' + userAuth.uid)
+//   console.log(dbRef);
+// }
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);

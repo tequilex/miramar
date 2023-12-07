@@ -41,7 +41,7 @@ export const UserProvider = ({ children }) => {
   }, [currentUser])
 
 // console.log(currentUser);
-// console.log(userInfo);
+// console.log(userInfo.DATA_CATEGORIES);
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
