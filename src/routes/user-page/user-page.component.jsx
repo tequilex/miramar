@@ -97,15 +97,21 @@ const UserPage = () => {
                     value={mentor || ""}
                 />
 
-                <select name="skill" onChange={handleChange}>
+                <div className="selects">
+                    <div className="select-wrap">
+                    <span>Уровень мастерства</span>
+                <select className="select" name="skill" onChange={handleChange}>
                     <option defaultValue="выбрать">{skill}</option>
                     <option>дебют</option>
                     <option>начинающие</option>
                     <option>продолжающие</option>
                     <option>профессионалы</option>
                 </select>
+                </div>
 
-                <select name="choisedPackage" onChange={handleChange}>
+                <div className="select-wrap">
+                <span>Пакет</span>
+                <select className="select" name="choisedPackage" onChange={handleChange}>
                     <option defaultValue="выбрать">{choisedPackage}</option>
                     <option>MAXI</option>
                     <option>MIDI</option>
@@ -113,6 +119,8 @@ const UserPage = () => {
                     <option>KIDS</option>
                     <option>STUDY</option>
                 </select>
+                </div>
+                </div>
 
                 <Button type="submit">Сохранить</Button>
             </form>

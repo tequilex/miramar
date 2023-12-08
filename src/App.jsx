@@ -12,6 +12,7 @@ import Categories from "./routes/categories/categories.component";
 import Billing from "./routes/billing/billing.component";
 import Navigation from "./routes/navigation/navigation.component";
 import ProtectedRoute from "./routes/protected-route/protected";
+import SignUpForm from "./components/signUp-form/signUp-form.component";
 
 const App = () => {
     const router = createBrowserRouter([
@@ -21,7 +22,13 @@ const App = () => {
         },
         {
             path: "/auth",
-            element: <Auth />
+            element: <Auth />,
+            children: [
+                {
+                path: 'sign-up',
+                element: <SignUpForm />
+            },
+            ]
         },
         {
             element: (

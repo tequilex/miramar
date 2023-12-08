@@ -1,9 +1,11 @@
+.auth-wrap {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
 .auth-container {
   display: flex;
-  justify-content: space-evenly;
-  background: grey;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 10%;
-  
+  justify-content: center;
+  align-items: center;
 }

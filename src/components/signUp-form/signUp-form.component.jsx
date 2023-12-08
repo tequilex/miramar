@@ -30,6 +30,10 @@ const SignUpForm = () => {
     const { displayName, birthday, city, email, password, confirmPassword } =
         formFields;
 
+        const handleChangeAuth = () => {
+            navigate("/auth");
+        };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -69,8 +73,8 @@ const SignUpForm = () => {
 
     return (
         <div className="sign-up-container">
-            <h2>Еще нет аккаунта?</h2>
-            <span>Зарегистрируйтесь используя email и пароль</span>
+            <h2 className="title">Еще нет аккаунта?</h2>
+            <span className="subtitle">Зарегистрируйтесь используя email и пароль</span>
             <form onSubmit={handleSubmit}>
                 <FormInput
                     label="ФИО"
@@ -127,6 +131,9 @@ const SignUpForm = () => {
                 />
 
                 <Button type="submit">Зарегистрироваться</Button>
+                <div className="goToReg">
+                    Уже есть аккаунт? <span className="goToReg-button" onClick={handleChangeAuth}>Войти!</span>
+                </div>
             </form>
         </div>
     );

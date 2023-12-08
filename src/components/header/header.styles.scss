@@ -13,6 +13,7 @@
   .wrap {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   .logo {
@@ -20,15 +21,34 @@
   }
 
   .name {
-    font-family: 'Zitter-Regular.ttf'
-  }
-
-  .toReg {
-    cursor: pointer;
+    font-family: 'Zitter-Regular.ttf';
     transition: 0.3s;
 
     &:hover {
       color: $title;
+    }
+  }
+
+  .toReg {
+    display: flex;
+    gap: 10px;
+
+    .sign-in {
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        color: $title;
+      }
+    }
+
+    .sign-up {
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        color: $title;
+      }
     }
   }
 }

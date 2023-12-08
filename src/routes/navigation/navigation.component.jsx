@@ -17,10 +17,11 @@ const Navigation = () => {
           <Link className="nav-link" to="/billing">
             Оплата
           </Link>
+        </div>
           <span className="nav-link" onClick={signOutUser}>
           Выйти
         </span>
-        </div>
+        
       </div>
       <Outlet />
     </Fragment>

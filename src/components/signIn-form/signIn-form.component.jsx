@@ -16,6 +16,10 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
+    const handleChangeAuth = () => {
+        navigate("/auth/sign-up");
+    };
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields);
     };
@@ -42,8 +46,8 @@ const SignInForm = () => {
 
     return (
         <div className="sign-in-container">
-            <h2>Уже есть аккаунт?</h2>
-            <span>Войти используя email и пароль</span>
+            <h2 className="title">Уже есть аккаунт?</h2>
+            <div className="subtitle">Войти используя email и пароль</div>
             <form onSubmit={handleSubmit}>
                 <FormInput
                     label="Email"
@@ -64,6 +68,9 @@ const SignInForm = () => {
                 />
                 <div className="buttons-container">
                     <Button type="submit">Войти</Button>
+                </div>
+                <div className="goToReg">
+                    Нет аккаунта? <span className="goToReg-button" onClick={handleChangeAuth}>Зарегестрироваться!</span>
                 </div>
             </form>
         </div>
